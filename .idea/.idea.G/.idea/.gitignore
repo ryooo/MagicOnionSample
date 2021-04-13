@@ -1,0 +1,13 @@
+# デフォルトの無視ファイル
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/.idea.G.iml
+/contentModel.xml
+/modules.xml
+# データソースのローカルストレージがファイルを無視しました
+/dataSources/
+/dataSources.local.xml
+# エディターベースの HTTP クライアントリクエスト
+/httpRequests/
