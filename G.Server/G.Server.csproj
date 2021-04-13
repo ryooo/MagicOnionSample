@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AgonesSDK" Version="1.13.0" />
     <PackageReference Include="MagicOnion.Abstractions" Version="4.2.0" />
     <PackageReference Include="MagicOnion.Server" Version="4.2.0" />
     <ProjectReference Include="..\G.Shared\G.Shared.csproj" />

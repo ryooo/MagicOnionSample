@@ -60,8 +60,8 @@ namespace Assets.Scripts
 
         private async Task InitializeClientAsync()
         {
-            // Initialize the Hub
-            this.channel = new Channel("localhost", 5000, ChannelCredentials.Insecure);
+            // Initialize the Hub       ↓ minikube ip
+            this.channel = new Channel("192.168.99.110", 5000, ChannelCredentials.Insecure);
             // for SSL/TLS connection
             //var cred = new SslCredentials(File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "server.crt")));
             //this.channel = new Channel("dummy.example.com", 5000, cred); // local tls

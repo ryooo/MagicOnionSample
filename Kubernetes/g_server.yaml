@@ -1,0 +1,38 @@
+﻿apiVersion: "agones.dev/v1"
+kind: Fleet
+metadata:
+  name: g-server
+  generateName: g-server-
+  labels:
+    agones.dev/fleet: g-server
+spec:
+  replicas: 0
+  template:
+    spec:
+      ports:
+        - name: default
+          portPolicy: Static
+          containerPort: 5000
+          hostPort: 5000
+          protocol: TCP
+      health:
+        disabled: true # KubernetesデフォルトのHTTPによるヘルスチェックは切る
+      template:
+        spec:
+          containers:
+            - name: g-server
+              image: hekk/g-server
+              imagePullPolicy: IfNotPresent
+---
+apiVersion: "autoscaling.agones.dev/v1"
+kind: FleetAutoscaler
+metadata:
+  name: g-server
+spec:
+  fleetName: g-server
+  policy:
+    type: Buffer
+    buffer:
+      bufferSize: 1
+      minReplicas: 0
+      maxReplicas: 10
